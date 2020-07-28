@@ -1,6 +1,8 @@
 #include <iostream>
 #include <Windows.h>
 
+#include "EObjectFactory.h"
+
 typedef HWND (__stdcall * create_window)(HINSTANCE instance, LPCSTR class_name, LPCSTR window_name);
 typedef HWND (__stdcall * create_child_window)(HINSTANCE instance, HWND parent, LPCSTR class_name, LPCSTR window_name);
 
@@ -12,8 +14,8 @@ int WINAPI WinMain(
 	LPSTR lpCmdLine, 
 	int nShowCmd)
 {
-	create_window wnd = &CreateEWindow;
-	HWND window = wnd(hInstance,"First Window","EGO Task Manager");
+	common::EObjectFactory test(hInstance);
+	test.OnCreateWindow("Second Window","Window");
 	return 0;
 }
 
