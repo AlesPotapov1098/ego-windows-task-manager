@@ -8,9 +8,11 @@ namespace common
 	EObjectFactory::EObjectFactory(HINSTANCE instance)
 	{
 	}
+
 	EObjectFactory::~EObjectFactory()
 	{
 	}
+
 	void EObjectFactory::OnCreateWindow(LPCSTR class_name, LPCSTR window_name)
 	{
 		HWND window = ECreateWindow(hInstance,class_name,window_name);
@@ -20,6 +22,7 @@ namespace common
 
 		_storage.insert(std::pair<HWND,LPCSTR>(window,window_name));
 	}
+
 	HWND __stdcall ECreateWindow(HINSTANCE inst, LPCSTR clname, LPCSTR wndname)
 	{
 		WNDCLASSEXA windowClass;
